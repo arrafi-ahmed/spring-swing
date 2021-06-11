@@ -1,10 +1,13 @@
-package com.example.datacollector.model;
+package com.example.datacollector.domain;
 
 public class User {
-    public String name;
-    public String email;
-    public String gender;
-    public String profileImage;
+    private String name;
+    private String email;
+    private String gender;
+    private String profileImage;
+
+    public User() {
+    }
 
     public User(String name, String email, String gender, String profileImage) {
         this.name = name;

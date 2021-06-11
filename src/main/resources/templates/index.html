@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
@@ -14,31 +14,31 @@
 <div class="container">
     <div class="row">
         <div class="col pt-5">
-            <form>
+            <form action="#" method="post" th:action="@{/}" th:object="${user}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
+                    <input th:field="*{name}" type="text" class="form-control" id="name">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <input th:field="*{email}" type="email" class="form-control" id="email">
                 </div>
                 Gender:
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="male">
+                    <input th:field="*{gender}" class="form-check-input" type="radio" name="gender" value="male">
                     <label class="form-check-label" for="male">
                         Male
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="female">
+                    <input th:field="*{gender}" class="form-check-input" type="radio" name="gender" value="female">
                     <label class="form-check-label" for="female">
                         Female
                     </label>
                 </div>
 
                 <a th:href="@{/webcam}"> <button type="button" class="btn btn-primary d-block mt-3">Capture Photo</button></a>
-
+                <input th:value="${profileImg}" th:name="profileImage" type="hidden" class="form-control" >
                 <button type="submit" class="btn btn-primary d-block mt-3">Submit</button>
             </form>
         </div>
